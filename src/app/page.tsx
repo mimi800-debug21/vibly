@@ -11,87 +11,101 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-subtle">
-      {/* Content Container */}
-      <div className="max-w-5xl mx-auto px-8 md:px-12 lg:px-16">
+    <main className="min-h-screen bg-[#fafafa] relative overflow-hidden">
+      {/* Decorative Blobs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-[#bef264] opacity-20 blob" />
+        <div className="absolute bottom-40 right-10 w-80 h-80 bg-[#3b82f6] opacity-15 blob" style={{ animationDelay: '-4s' }} />
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-[#ec4899] opacity-10 blob" style={{ animationDelay: '-2s' }} />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <header className={`flex justify-between items-center pt-16 md:pt-24 pb-12 md:pb-16 ${
+        <header className={`flex justify-between items-center pt-12 pb-16 ${
           isVisible ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-700`}>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">
+        } transition-opacity duration-500`}>
+          <h1 className="text-3xl md:text-4xl font-black tracking-tighter">
             <span className="gradient-text">Vibly</span>
           </h1>
           <nav>
             <Link 
               href="/hub" 
-              className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
+              className="text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors"
             >
               Hub
             </Link>
           </nav>
         </header>
 
-        {/* Hero Section */}
-        <section className="flex flex-col items-center text-center py-12 md:py-20">
+        {/* Hero */}
+        <section className="py-16 md:py-24 text-center">
           <h2 
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight text-gray-900 ${
+            className={`text-5xl sm:text-7xl md:text-8xl font-black mb-6 md:mb-8 tracking-tighter leading-none ${
               isVisible ? 'animate-slide-up' : 'opacity-0'
             }`}
             style={{ animationFillMode: 'forwards' }}
           >
-            Play the moment
+            Play what's
+            <br />
+            <span className="gradient-text">trending.</span>
           </h2>
           <p 
-            className={`text-gray-500 text-base md:text-lg lg:text-xl mb-10 md:mb-12 max-w-md leading-relaxed ${
+            className={`text-gray-500 text-lg md:text-xl lg:text-2xl mb-10 md:mb-12 max-w-lg mx-auto font-medium ${
               isVisible ? 'animate-slide-up' : 'opacity-0'
             }`}
             style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}
           >
-            Kurze Spiele. Trends. Sofort spielbar.
+            Short games, viral challenges & daily chaos.
           </p>
-          <Link href="/hub">
-            <button 
-              className={`button-primary ${
-                isVisible ? 'opacity-100 animate-pulse-slow' : 'opacity-0'
-              } transition-opacity duration-700`}
-              style={{ animationDelay: '0.2s' }}
-            >
-              Jetzt spielen
-            </button>
-          </Link>
+          <div 
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            } transition-opacity duration-500`}
+            style={{ animationDelay: '0.2s' }}
+          >
+            <Link href="/hub">
+              <button className="button-primary">
+                Enter Vibly →
+              </button>
+            </Link>
+            <Link href="/67-rush">
+              <button className="button-secondary">
+                See today's games
+              </button>
+            </Link>
+          </div>
         </section>
 
-        {/* Decorative Element */}
-        <div 
-          className={`flex justify-center py-12 md:py-16 ${
+        {/* How it works */}
+        <section 
+          className={`py-16 md:py-24 ${
             isVisible ? 'opacity-100' : 'opacity-0'
-          } transition-opacity duration-700`}
+          } transition-opacity duration-500`}
           style={{ animationDelay: '0.3s' }}
         >
-          <div className="relative">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rotate-12 animate-float" />
-            <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-indigo-400 to-purple-400 opacity-30 -rotate-6" />
-          </div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div 
+              className={`card text-center ${
+                isVisible ? 'animate-slide-up' : 'opacity-0'
+              }`}
+              style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
+            >
+              <div className="text-6xl md:text-7xl mb-4 animate-float">🎯</div>
+              <h3 className="text-2xl font-bold mb-2">Pick a game</h3>
+              <p className="text-gray-500 text-base">Choose from daily trending games</p>
+            </div>
 
-        {/* Explanation Cards */}
-        <section 
-          className={`py-12 md:py-16 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          } transition-opacity duration-700`}
-          style={{ animationDelay: '0.4s' }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             <div 
               className={`card text-center ${
                 isVisible ? 'animate-slide-up' : 'opacity-0'
               }`}
               style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
             >
-              <div className="text-5xl md:text-6xl mb-4">🎯</div>
-              <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900">Auswählen</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Wähle dein Spiel aus dem Hub</p>
+              <div className="text-6xl md:text-7xl mb-4 animate-float" style={{ animationDelay: '-1s' }}>⚡</div>
+              <h3 className="text-2xl font-bold mb-2">Play 10–30s</h3>
+              <p className="text-gray-500 text-base">Quick rounds, instant fun</p>
             </div>
 
             <div 
@@ -100,38 +114,50 @@ export default function Home() {
               }`}
               style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
             >
-              <div className="text-5xl md:text-6xl mb-4">🎮</div>
-              <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900">Spielen</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Sofort loslegen ohne Wartezeit</p>
-            </div>
-
-            <div 
-              className={`card text-center ${
-                isVisible ? 'animate-slide-up' : 'opacity-0'
-              }`}
-              style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
-            >
-              <div className="text-5xl md:text-6xl mb-4">🔥</div>
-              <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900">Teilen</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Teile deine Erfolge mit Freunden</p>
+              <div className="text-6xl md:text-7xl mb-4 animate-float" style={{ animationDelay: '-2s' }}>🔥</div>
+              <h3 className="text-2xl font-bold mb-2">Share & compare</h3>
+              <p className="text-gray-500 text-base">Beat your friends' scores</p>
             </div>
           </div>
         </section>
 
+        {/* Featured Game Preview */}
+        <section 
+          className={`py-16 md:py-24 ${
+            isVisible ? 'opacity-100' : 'opacity-0'
+          } transition-opacity duration-500`}
+          style={{ animationDelay: '0.7s' }}
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold mb-2">Featured Today</h3>
+            <p className="text-gray-500">One game. Infinite attempts.</p>
+          </div>
+          <Link href="/67-rush">
+            <div className="game-card max-w-lg mx-auto text-center">
+              <span className="badge badge-trending mb-4">🔥 Trending</span>
+              <div className="text-7xl mb-4 animate-float">🔢</div>
+              <h4 className="text-3xl font-black mb-2">67 Rush</h4>
+              <p className="text-gray-500 text-lg mb-4">Hit exactly 67. Or don't.</p>
+              <div className="flex gap-2 justify-center text-sm text-gray-400">
+                <span className="badge badge-daily">Daily</span>
+                <span className="badge badge-viral">Viral</span>
+              </div>
+            </div>
+          </Link>
+        </section>
+
         {/* Footer */}
         <footer 
-          className={`py-12 md:py-16 text-center ${
+          className={`py-12 text-center ${
             isVisible ? 'opacity-100' : 'opacity-0'
-          } transition-opacity duration-700`}
+          } transition-opacity duration-500`}
           style={{ animationDelay: '0.8s' }}
         >
-          <div className="flex justify-center gap-8 text-sm font-medium text-gray-400">
-            <a href="/impressum" className="hover:text-gray-600 transition-colors">
-              Impressum
-            </a>
-            <a href="/datenschutz" className="hover:text-gray-600 transition-colors">
-              Datenschutz
-            </a>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-sm font-medium text-gray-400">
+            <a href="/about" className="hover:text-gray-600 transition-colors">About</a>
+            <a href="/terms" className="hover:text-gray-600 transition-colors">Terms</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors">TikTok</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors">Instagram</a>
           </div>
         </footer>
       </div>
